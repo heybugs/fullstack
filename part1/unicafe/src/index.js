@@ -7,9 +7,10 @@ const Button = ({ data }) => {
 
 const Statistics = ({ data }) => {
   return (
-    <p>
-      {data.text} <span>{data.count}</span>
-    </p>
+    <tr>
+      <td>{data.text}</td>
+      <td>{data.count}</td>
+    </tr>
   );
 };
 
@@ -52,14 +53,16 @@ const App = () => {
       {dataArr[0].count !== 0 ||
       dataArr[1].count !== 0 ||
       dataArr[1].count !== 0 ? (
-        <div>
-          <Statistics data={dataArr[0]} />
-          <Statistics data={dataArr[1]} />
-          <Statistics data={dataArr[2]} />
-          <Statistics data={dataArr[3]} />
-          <Statistics data={dataArr[4]} />
-          <Statistics data={dataArr[5]} />
-        </div>
+        <table>
+          <tbody>
+            <Statistics data={dataArr[0]} />
+            <Statistics data={dataArr[1]} />
+            <Statistics data={dataArr[2]} />
+            <Statistics data={dataArr[3]} />
+            <Statistics data={dataArr[4]} />
+            <Statistics data={dataArr[5]} />
+          </tbody>
+        </table>
       ) : (
         <div>No feedback given</div>
       )}
