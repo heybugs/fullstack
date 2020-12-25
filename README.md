@@ -1,2 +1,3 @@
 # fullstack
-https://fullstackopen.com/en/
+
+(Full Stack Open 2020)[https://fullstackopen.com/en/]
