@@ -1,6 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+const Header = ({ course }) => {
+  return <h1>{course.name}</h1>;
+};
+const Content = ({ parts }) => {
+  return (
+    <div>
+      <Part partsItem={parts[0]} />
+      <Part partsItem={parts[1]} />
+      <Part partsItem={parts[2]} />
+    </div>
+  );
+};
+const Total = ({ parts }) => {
+  return (
+    <p>
+      Number of exercises{' '}
+      {parts[0].exercises + parts[1].exercises + parts[2].exercises}
+    </p>
+  );
+};
+const Part = ({ partsItem }) => {
+  return (
+    <p>
+      {partsItem.name} {partsItem.exercises}
+    </p>
+  );
+};
+
 const App = () => {
   const course = {
     name: 'Half Stack application development',
@@ -19,34 +47,7 @@ const App = () => {
       },
     ],
   };
-  const Header = ({ course }) => {
-    return <h1>{course.name}</h1>;
-  };
-  const Content = ({ parts }) => {
-    return (
-      <div>
-        <Part partsItem={parts[0]} />
-        <Part partsItem={parts[1]} />
-        <Part partsItem={parts[2]} />
-      </div>
-    );
-  };
-  const Total = ({ parts }) => {
-    return (
-      <p>
-        Number of exercises{' '}
-        {parts[0].exercises + parts[1].exercises + parts[2].exercises}
-      </p>
-    );
-  };
 
-  const Part = ({ partsItem }) => {
-    return (
-      <p>
-        {partsItem.name} {partsItem.exercises}
-      </p>
-    );
-  };
   return (
     <div>
       <Header course={course} />
