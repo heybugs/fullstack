@@ -15,7 +15,7 @@ const Button = ({ handleClick, text }) => {
 };
 
 const Vote = ({ voteCounts }) => {
-  // console.log(voteCounts);
+  console.log(voteCounts);
   return <p>has {voteCounts === undefined ? 0 : voteCounts} votes</p>;
 };
 
@@ -33,7 +33,10 @@ const App = () => {
   // 最高票数箴言的index
   let idxOfMax = points.indexOf(maxVoteCount);
   const handleVoteClick = () => {
-    points[selectedIdx] += 1;
+    points[selectedIdx] === undefined
+      ? (points[selectedIdx] = 1)
+      : (points[selectedIdx] += 1);
+
     setPoints([...points]);
   };
   return (
