@@ -15,8 +15,7 @@ const Button = ({ handleClick, text }) => {
 };
 
 const Vote = ({ voteCounts }) => {
-  console.log(voteCounts);
-  return <p>has {voteCounts === undefined ? 0 : voteCounts} votes</p>;
+  return <p>has {voteCounts} votes</p>;
 };
 
 const App = () => {
@@ -44,7 +43,9 @@ const App = () => {
       <h1>Anecdote of the day</h1>
       {/* 随机展示箴言和对应投票 */}
       <p>{anecdotes[selectedIdx]}</p>
-      <Vote voteCounts={points[selectedIdx]} />
+      <Vote
+        voteCounts={points[selectedIdx] === undefined ? 0 : points[selectedIdx]}
+      />
       <div>
         <Button
           handleClick={handleVoteClick}
